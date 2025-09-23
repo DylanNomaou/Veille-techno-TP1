@@ -6,6 +6,255 @@
     <title>Tp1</title>
 </head>
 <body>
+    <h1>Usage proposé </h1>
+    <p> Une auto de marque ayant été concut une année inferieure dans les environ de <a href="https://www.ecoleauto.com/blog/cameras-de-recul-equipement-desormais-obligatoire-au-canada/#:~:text=Depuis%20le%201er%20mai%202018,d'une%20cam%C3%A9ra%20de%20recul.">2018</a>,
+    n'est très souvent pas équippés de caméra de recul ou de système prévenant qu'il ya une autre automobile ou un objet quelconque à proximité.
+    Devoir changer de voitures ou même en faire installer un appareil comme cela coûte excessivement cher. C'est donc pour cela que l'utilisation d'un arduino
+    ainsi qu'une technologie pourrait permettre d'aider cela. </p>
+
+    <h1>Description de l'objet expérimenté</h1>
+    <p> Je vais expérimenter un arduino ainsi accompagner d'un <a href="https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/">HC-SR04 ultrasonic sensor</a>.
+        Cet appareil est un capteur à ultrasons qui permet de mesurer la distance entre l'appareil et un objet quelconque, de plus avec l'aide du arduino il est possible de programmer
+        des alertes sonores ou visuelles lorsque l'objet est trop proche , trop loin ou même afficher la distance entre l'objet et le capteur.
+
+        le capteur, malgré son petit prix (environ 10$) est très efficace et précis, il peut mesurer des distances entre 2cm et 400cm avec une précision de 3mm.
+        Le capteur est aussi très facile à utiliser, il suffit de le connecter à un arduino et de programmer le tout. Le modèle que j'ai choisi est le HC-SR04
+        car il est très populaire et possède les spécifications suivantes :
+        <ul>
+            <li> <a href="https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/">Tension de fonctionnement : 5V CC</a></li>
+            <li> <a href="https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/">Courant de fonctionnement : 15 mA</a></li>
+            <li><a href="https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/">Fréquence de fonctionnement : 40 kHz</a></li>
+            <li><a href="https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/">Portée minimale : 2 cm / 1 pouce</a></li>
+            <li><a href="https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/">Portée maximale : 400 cm / 13 pieds</a></li>
+            <li><a href="https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/">Précision : 3 mm</a></li>
+            <li><a href="https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/">Angle de mesure : < 15°</a></li>
+            <li><a href="https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/">Dimensions : 45 x 20 x 15 mm</a></li>
+        </ul>
+
+        Au niveau applicatif, il faut connecter les fils du capteur dans les bonnes prises du Arduino qui sont fabriqué par l'entreprise italienne<a href="https://store.arduino.cc/products/arduino-uno-rev3?srsltid=AfmBOorrKmaw5SCGizmvPAxCSBqukn9OGbqSWpDEf-bkp_X4809CpCfN&utm_source=chatgpt.com"> Arduino S.r.l.</a>
+        et ainsi après cela il va falloir télécharger le logiciel <a href="https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE">Arduino IDE</a>
+        pour pouvoir programmer le tout. Le code est très simple et se trouve sur le site officiel de <a href="https://projecthub.arduino.cc/Isaac100/getting-started-with-the-hc-sr04-ultrasonic-sensor-7cabe1">Arduino</a>.
+        En ce qui concerne l'usage proposé de detecter la distance ainsi que d'alerter le conducteur d'un objet, le capteur serait placé à l'arrière de la voiture
+        et ainsi lorsque la voiture recule, le capteur mesure la distance entre l'objet et la voiture et ainsi si l'objet est trop proche, un message visuel est montré.
+    </p>
+
+    <h2>Shéma matérielle</h2>
+        <img src="/img/2025-09-23 10_46_57-Document1 - Word.png" alt=" Schéma matériel du projet" width="600">
+    <h1>Expérimentations</h1>
+    <p>le capteur HC-SR04 ultrasonic et le arduino seront expérimentés afin de valider s'ils peuvent vraiment être
+        utilse dans une voiture pour aider le conducteur à reculer en toute sécurité.
+    </p>
+
+    <p>
+        <ol>
+            <strong>
+                <li>
+                    La détection d'un objet
+                </li>
+            </strong>
+        </ol>
+        L'objectif de cette expérimentation est de vérifier si le capteur HC-SR04 peut réellement détecter des objets et de dire la distance à laquelle il la détecté.
+        Cette expérimentation nécessite de brancher des fils male male (capteur)VCC à 5V(arduino) (capteur)GND à GND(arduino) (capteur)Trig à pin 9(arduino) (capteur)Echo à pin 10(arduino)
+        ensuite il faut programmer le arduino avec le <a href="https://projecthub.arduino.cc/Isaac100/getting-started-with-the-hc-sr04-ultrasonic-sensor-7cabe1">code suivant</a> :
+        <img src="img/image.png" alt="code arduino" width="600">
+        <div>
+                Après avoir programmé le arduino, il faut ouvrir le moniteur série et ainsi approcher un objet quelconque du capteur.
+        Le moniteur série doit afficher la distance entre le capteur et l'objet en cm.
+        </div>
+
+        <div>
+            <img src="img/e4528655-5d48-4b69-b83e-f9bf4a6cacef.jpg" alt="photo de l'expérimentation" width="600">
+            <img src="img/c6b3a1b2-9fcc-4cc5-86e8-fd8b03cb8dce.jpg" alt="photo de l'expérimentation" width="600 ">
+            <video controls>
+                <source src="media/9246f3e2-3f4c-4dcb-8a5e-3d3e2f3b8f4e.mp4" type="video/mp4">
+                <source src="media/09166bfe-4e6d-49b5-9faa-ef7fc9776fd4.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <ol>
+            <strong>
+                <li>
+                    La détection d'un objet transparent
+                </li>
+            </strong>
+        </ol>
+        l'objectif de cette expérimentation est de vérifier si le capteur HC-SR04 peut réellement détecter des objets transparents comme un objet en verre ou du plastique.
+        Cette expérimentation nécessite les mêmes branchements et la même procédure que l'expérimentation précédente.
+
+        <img src="img/3885a063-a98f-491f-be9c-72bea21ffb2f.jpg" alt="photo de l'expérimentation" width="600">
+
+        <ol>
+            <strong>
+                <li>
+                    La détection et affichage d'une distance trop loin
+                </li>
+            </strong>
+        </ol>
+        l'objectif de cette expérimentation est de vérifier si le capteur HC-SR04 peut réellement détecter des objets trop loin et ainsi afficher un message d'alerte.
+        Cette expérimentation nécessite les mêmes branchements et la même procédure que l'expérimentation précédente, mais avec un code modifié pour afficher un message d'alerte lorsque la distance est supérieure à 200 cm.
+        Le code modifié est le suivant :
+        <img src="img/2025-09-23 11_18_44-sketch_sep10a _ Arduino IDE 2.3.6.png" alt="code arduino modifié" width="600">
+
+        <img src="img/6f69f059-7fdb-42a9-8c0a-b7c236cc1a16.jpg" alt="photo de l'expérimentation" width="600">
+
+        <video src="media/fda8aef7-e15e-48b5-9915-8968160fc456.mp4" controls>
+            <img src="img/c79c918d-bc86-465f-849b-aa38ca0736a4.jpg" alt=" photo de l'expérimentation" width="600">
+
+        </video>
+
+        <ol>
+            <strong>
+                <li>
+                    La détection d'objet trop proche
+                </li>
+            </strong>
+        </ol>
+        l'objectif de cette expérimentation est de vérifier si le capteur HC-SR04 peut réellement détecter des objets trop proches et voir qu'est ce que ca fait.
+        Cette expérimentation nécessite les mêmes branchements et la même procédure que la première expérimentation, ainsi que le même code.
+        <div>
+            <img src="img/6d7c908e-cb96-46e4-8f7c-bbbc169f470e.jpg" alt="photo de l'expérimentation" width="600">
+
+        </div>
+
+        <ol>
+            <strong>
+                <li>
+                    La détection avec un interférences sur un des transmetteurs
+                </li>
+            </strong>
+        </ol>
+        L'objectif de cette expérimentation est de vérifier si le capteur HC-SR04 peut réellement détecter des objets lorsqu'il y a une interférence sur un des transmetteurs.
+        Cette expérimentation nécessite les mêmes branchements et la même procédure que la première expérimentation, mais avec une interférence sur un des transmetteurs.
+        L'interférence peut être faite en plaçant un objet ou une main devant un des transmetteurs.
+
+        <div>
+            <img src="img/e209a7ed-77fb-4a60-86ef-3c27b6b9dba8.jpg" alt="photo de l'expérimentation" width="600">
+        <img src="img/fac39b52-4091-438b-b648-c1736f530d7e.jpg" alt="photo de l'expérimentation" width="600">
+        </div>
+
+    </p>
+
+    <h1>Avis</h1>
+    <p>
+        Après avoir expérimenté le capteur HC-SR04 ultrasonic et le arduino, je peux dire que ce système est très efficace pour détecter des objets et mesurer la distance entre le capteur et l'objet.
+        Le capteur a réussi à détecter des objets de différentes tailles et formes, ainsi que des objets transparents, comme du verre ou du plastique.
+        Le capteur a également réussi à détecter des objets trop loin et trop proches, et à afficher un message d'alerte lorsque la distance était supérieure à 200 cm.
+        Cependant, le capteur a eu des difficultés à détecter des objets lorsqu'il y avait une interférence sur un des transmetteurs.
+        Dans l'ensemble, je pense que ce système pourrait être utilisé dans une voiture pour aider le conducteur à reculer en toute sécurité, mais il faudrait peut-être ajouter un système de filtrage pour éviter les interférences.
+
+    </p>
+
+    <h2>justification du potentiel de la techno</h2>
+    <p>Pour un assistant de recul qui ne coute pas cher, le combo Arduino Uno + HC-SR04 a du potentiel :
+    c’est très accessible, car ce n'est pas cher, à une bonne portée et une précision quand même relative à la réalité.
+    Cela peut être utile pour des démonstrations, mais aussi pour un usage personnel sur une voiture ancienne (non équipée d’un système de recul).
+    En revanche, le HC-SR04 n'est pas parfait/infaillible, car il n'a pas de protections directement et n'est pas prévu pour des vibrations/températures extrêmes.
+    Elle peut aussi être perturbée par de la pluie, de la neige, du vent, de la poussière, etc.
+    Cette techno peut, par contre, être combinée avec d'autres capteurs (caméra, radar, écran) pour compenser ses défauts.
+    Donc, parfait pour des démonstrations / usages personnelle, mais insuffisante pour un produit de sécurité avec des conditions réelles.</p>
+
+    <h2>Longévité</h2>
+    <p>
+       D'après ce forum <a href="https://community.sparkfun.com/t/hr-sc04-mean-time-between-failure/40692">"sparkfun"</a>, le HC-SR04 n'a pas de durée de vie spécifiée par le fabricant.
+       Cependant, étant donné qu'il s'agit d'un capteur à ultrasons, il est probable qu'il ait une durée de vie relativement longue s'il est utilisé dans des conditions normales.
+       De plus, le HC-SR04 est un capteur très populaire et largement utilisé dans de nombreux projets, ce qui suggère qu'il est fiable et durable.
+
+    </p>
+
+    <h2>stabilité</h2>
+    <p>
+        Le HC-SR04 est stable dans des conditions normales, mais est affecté par des interférences ou des obstacles.
+        De plus, pendant mes expérimentations, au début l'appareil ne détectait rien et a même commencé à surchauffer.
+        Après plusieurs cours, je ne comprenais toujours pas pourquoi, mais après avoir changé à 3 reprises de capteurs, le tout a fonctionné parfaitement.
+        C'est donc pour cela que je pense que la stabilité de l'appareil n'est pas parfaite.
+    </p>
+
+    <h2>Efficacité</h2>
+    <p>
+        Après plusieurs tests, le capteur a relativement bien fonctionné, mais, comme dit précédemment,
+        il a eu des difficultés à détecter des objets lorsqu'il y avait une interférence sur un des transmetteurs
+        et aussi c'était compliqué de détecter des objets en diagonales. Il est dit aussi que le capteur peut être perturbé par des changements
+        de températures de 5 à 10 degrés ou plus. Donc, dans l'ensemble, je pense que ce système pourrait être utilisé dans une voiture pour aider le conducteur
+        à reculer en toute sécurité, mais n'est pas efficace à 100%.
+    </p>
+
+    <h2>Maintenabilité</h2>
+    <p>
+        Le HC-SR04 est un capteur très simple et facile à utiliser, il n'a pas besoin de beaucoup d'entretien et très facile à ranger sans trop l'abimé,
+        ainsi que le arduino. Cependant, il est important de protéger le capteur contre les chocs, la température, les animaux de compagnies, car cela pourrait l'endommager.
+        De plus, il est important de le nettoyer pour éviter la poussière et la saleté qui pourraient affecter les performances du capteur.
+        En cas de problème, le HC-SR04 est facilement remplaçable, car il est peu coûteux et largement disponible.
+        Donc, dans l'ensemble, je pense que le HC-SR04 est un capteur facile à entretenir et à maintenir.
+    </p>
+
+    <h2>Avantages et inconvénients de la techno</h2>
+    <p>
+        Le HC-SR04 est un capteur à ultrasons qui présente plusieurs avantages et inconvénients.
+        Parmi les avantages, on peut citer :
+        Le prix de celui-ci qui est très abordable d'environ 5-10$.
+        ensuite, il n'est pas compliqué à utiliser, il suffit de le connecter à un arduino et de programmer le tout.
+        deplus, il peut ètre utilisé dans les endroits sombres ou avec peu de lumière, car il utilise des ultrasons pour détecter les objets
+        et, enfin, il n'est pas affecté par la couleur ou la transparence des objets.
+
+        Parmi les inconvénients, on peut citer :
+        Il peut être perturbé par des interférences ou des obstacles, ce qui peut affecter ses performances.
+        De plus, il n'est pas infaillible et ne peut pas être utilisé dans des environnements humides ou mouillés.
+        De plus, la précision de détection est affectée par la température, etc.
+
+        Le arduino est aussi un microcontrôleur qui présente plusieurs avantages et inconvénients.
+        Parmi les avantages, on peut citer :
+        Il est facile à utiliser et à programmer, même pour les débutants.
+        On peut trouver plusieurs documentations sur celui ci.
+        Il est peu coûteux et largement disponible.
+
+        Parmi les inconvénients, on peut citer :
+        Il a une puissance de traitement limitée, ce qui peut être un inconvénient pour les projets complexes.
+        Il n'a pas de système d'exploitation comme un Raspberry Pi, ce qui peut limiter ses fonctionnalités.
+        Il n'a pas de connectivité Wi-Fi ou Bluetooth intégré etc.
+
+
+    </p>
+
+    <h2>comparaison aux autres solutions</h2>
+    <p>
+
+    Pour une petite voiture téléguidée, l’HC-SR04 est une bonne option avec l'alerte visuelle, l'alerte de la distance etc.
+    Pour un montage sur voiture en conditions réelles, mieux vaut un ultrason étanche plus performant et qui peut
+    ne pas être perturbé par des interférences, avec boîtier ou directement un capteur caméra avec l'intelligence artificiele comme le
+    <a href="https://rpmweb.ca/videos/techno/comment-fonctionne-le-systeme-tesla-vision"> Tesla Vision</a>.
+    </p>
+
+    <h2>Conclusion</h2>
+    <p>
+        Pour un assistant de recul à mettre sur un véhicule, j’affirme que le
+        Arduino Uno et le HC-SR04 n'est pas adapté pour de vrai situation réelle.
+        Bien évidemment, il est économique et simple, mais il ne répond pas aux exigences de fiabilité et de robustesse d’un système de sécurité automobile.
+        Le capteur n'est pas pertinent au niveau de la longévité/robustesse, car le HC-SR04 n’est pas étanche, donc il ne résiste pas à la pluie, poussière, aux vibrations, aux températures. Pour la
+        stabilité/efficacité, il n'est pas efficace à cause des mesures sensibles à l’angle, aux surfaces molles ou aux variations de température. Pour la
+        maintenabilité et la sécurité, il est toujours important de le nettoyer pour éviter la poussière et la saleté, donc pour une automobile
+        c'est quasiment mission impossible.
+
+        Pour un prototype pédagogique, l’ensemble reste utile. Mais pour un véhicule, il faut passer à des
+        capteurs adaptés: ultrason étanche ou, mieux, des capteurs comme la Tesla Vision (ultrasons grade auto, caméras/vision), intégrés avec un boîtier
+        et un système électronique conçus pour l’environnement automobile.
+
+    </p>
+    <section id="sources">
+        <h2>Sources</h2>
+        <ul>
+            <li>HC-SR04 — <a href="https://maxbotix.com/blogs/blog/advantages-limitations-ultrasonic-sensors"> éfficacité</a></li>
+            <li>HC-SR04 — <a href="https://www.youtube.com/results?search_query=project+with+HC-SR04"> les projets</a></li>
+            <li>Arduino Uno Rev3 — <a href="https://docs.arduino.cc/hardware/uno-rev3">Doc officielle</a> / <a href="https://store.arduino.cc/products/arduino-uno-rev3">fiche boutique (spécifs)</a></li>
+            <li>HC-SR04 — <a href="https://www.sparkfun.com/ultrasonic-distance-sensor-hc-sr04.html">Prix</a></li>
+            <li>Arduino — <a href="https://www.arduino-france.com/review/arduino-uno/#:~:text=Les%20inconv%C3%A9nients%20de%20l'Arduino%20Uno&text=L'Arduino%20Uno%20dispose%20de%20la%20configuration%20minimale%20pr%C3%A9vue%20pour,co%C3%BBt%20total%20de%20votre%20achat.">Avantages/inconvénients</a></li>
+            <li>Tuto récap — <a href="https://howtomechatronics.com/tutorials/arduino/ultrasonic-sensor-hc-sr04/">HC-SR04 présentation du matériel </a></li>
+        </ul>
+    </section>
+
 
 </body>
 </html>
+
+
+
+
